@@ -16,8 +16,8 @@ library_dirs = []
 saf_performance_lib = []
 extra_link_args = []
 
-saf_performance_lib.extend(["openblas", "lapacke"])
-#extra_link_args.extend(['-Wl,-framework', '-Wl,Accelerate'])
+# saf_performance_lib.extend(["openblas", "lapacke"])
+extra_link_args.extend(['-Wl,-framework', '-Wl,Accelerate'])
 
 # cdef() expects a single string declaring the C types, functions and
 # globals needed to use the shared object. It must be in valid C syntax.
@@ -91,6 +91,19 @@ void getSHcomplex(/* Input Arguments */
                     /* Output Arguments */
                     float_complex* Y);
 
+void generateVBAPgainTable3D_srcs(/* Input arguments */
+                    float* src_dirs_deg,
+                    int S,
+                    float* ls_dirs_deg,
+                    int L,
+                    int omitLargeTriangles,
+                    int enableDummies,
+                    float spread,
+                    /* Output arguments */
+                    float** gtable,
+                    int* N_gtable,
+                    int* nTriangles);
+                
 void generateVBAPgainTable3D(/* Input arguments */
                              float* ls_dirs_deg,
                              int L,

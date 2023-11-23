@@ -24,6 +24,14 @@ the variable `saf_path` in `safpy_build.py` if needed.
 
 Install
 ---
+`git submodule update --init --recursive`
+
+`cd Spatial_Audio_Framework`
+
+`cmake -S . -B build -DSAF_PERFORMANCE_LIB=SAF_USE_APPLE_ACCELERATE -DCMAKE_OSX_ARCHITECTURES="x86_64"`
+
+`cmake --build ./build --parallel 4 --config Release`
+
 `pip install -e . `
 
 Test
